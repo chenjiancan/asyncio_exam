@@ -17,7 +17,7 @@ asyncio 库使用的例子
 * 协程需要依赖 event_loop 运行，由event_loop 进行调度
 * 线程的上下文切换是由 OS 调度，需要切出点不可预测，需要考虑资源竞争；协程切换需要自身主动让出执行权
 （当使用 await 执行阻塞任务时），协程event_loop 时在一个线程内
-* python GIL （https://wiki.python.org/moin/GlobalInterpreterLock）的存在，造成同一解析器运行进程内，
+* python GIL (https://wiki.python.org/moin/GlobalInterpreterLock) 的存在，造成同一解析器运行进程内，
 同一时刻只能有一个线程执行 python 字节码的解析，这使得python没法利用CPU多核特性，和单核一样；线程上下文切换
 的代价远远比协程切换大，所以协程效率更高；多进程不受GIL影响，但是多进程占用的系统资源更大，且需要考虑进程间
 数据共享问题。
